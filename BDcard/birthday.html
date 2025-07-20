@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .poster {
+      max-width: 600px;
+      padding: 2rem;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out forwards;
+    }
+
+    .poster h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      color: #f0f8ff;
+    }
+
+    .poster p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #dcdcdc;
+    }
+
+    .glow {
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #a0c4ff, 0 0 30px #a0c4ff;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #a0c4ff, 0 0 40px #ffb5e8;
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <h1 class="glow">You are still alive.</h1>
+    <p>
+      That is not a small thing.<br>
+      Even the stars envy your persistence.<br>
+      You made it through things no one knows.<br>
+      Existing is a quiet kind of magic.<br><br>
+      Breathe. You're here.<br>
+      And that means everything is still possible.
+    </p>
+    <h1 class="glow">WELL, HAPPY BIRTHDAY</h1>
+    <p>— by Crescent 🌙</p>
+  </div>
+
+  <!-- 🎵 Hidden Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="music/birthday_song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Allow music to play after first user interaction
+    const audio = document.getElementById("bg-music");
+
+    window.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play().catch(err => console.log("Audio blocked:", err));
+      }
+    }, { once: true });
+  </script>
+</body>
+</html>
